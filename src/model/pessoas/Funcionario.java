@@ -1,13 +1,8 @@
 package model.pessoas;
 
 public abstract class Funcionario {
-    private double salario;
-    private String nome;
-
-    public Funcionario(double salario, String nome) {
-        this.salario = salario;
-        this.nome = nome;
-    }
+    protected String nome;
+    protected double salario;
 
     public double getSalario() {
         return salario;
