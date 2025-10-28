@@ -1,4 +1,6 @@
-public class Funcionario {
+package model.pessoas;
+
+public abstract class Funcionario {
     private double salario;
     private String nome;
 
