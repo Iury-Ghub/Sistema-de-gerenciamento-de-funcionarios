@@ -1,22 +1,42 @@
 package model.pessoas;
 
+import model.empresa.Departamento;
+
+import java.time.LocalDate;
+import java.time.Period;
+
 public abstract class Funcionario {
     protected String nome;
-    protected double salario;
+    protected String cpf;
+    protected double salarioBase;
+    protected LocalDate dataContratacao;
+    protected Departamento departamento;
 
-    public double getSalario() {
-        return salario;
-    }
-
-    public void setSalario(double salario) {
-        this.salario = salario;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
+    public Funcionario(String nome, String cpf, double salarioBase, LocalDate dataContratacao, Departamento departamento) {
         this.nome = nome;
+        this.cpf = cpf;
+        this.salarioBase = salarioBase;
+        this.dataContratacao = dataContratacao;
+        this.departamento = departamento;
     }
+
+    public abstract double calcularPagamento();
+
+    public int getTempoDeCasa(Funcionario funcionario){
+        LocalDate hoje = LocalDate.now();
+        
+        Period duracao = Period.between(hoje,funcionario.dataContratacao);
+        int anos = duracao.getYears();
+
+        return anos;
+    };
+
+    public String getCargo(Funcionario funcionario){
+        return "Funcionário";
+    };
+
+    public String toString(){
+        return "Nome: "+ nome;
+    }
+
 }
