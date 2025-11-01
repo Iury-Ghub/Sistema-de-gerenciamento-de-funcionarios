@@ -12,7 +12,7 @@ public abstract class Funcionario {
     protected LocalDate dataContratacao;
     protected Departamento departamento;
 
-    public Funcionario(String nome, String cpf, double salarioBase, LocalDate dataContratacao, Departamento departamento) {
+    protected Funcionario(String nome, String cpf, double salarioBase, LocalDate dataContratacao, Departamento departamento) {
         this.nome = nome;
         this.cpf = cpf;
         this.salarioBase = salarioBase;
@@ -39,4 +39,11 @@ public abstract class Funcionario {
         return "Nome: "+ nome;
     }
 
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 }
