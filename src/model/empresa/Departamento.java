@@ -7,21 +7,24 @@ import java.util.Objects;
 
 public class Departamento {
     private String nome;
-    private ArrayList<Funcionario> funcionarios;
+    private final ArrayList<Funcionario> funcionarios = new ArrayList<>();
     private Projeto projetoAtivo;
 
-    public Departamento(String nome, ArrayList<Funcionario> funcionarios, Projeto projetoAtivo) {
+    public Departamento(String nome) {
         this.nome = nome;
-        this.funcionarios = funcionarios;
-        this.projetoAtivo = projetoAtivo;
     }
 
     public void adicionarFuncionario(Funcionario f) {
+        funcionarios.add(f);
 
     }
 
-    public double caucularFolhaMensal() {
-        return 0;
+    public double calcularFolhaMensal() {
+        double tot = 0;
+        for (Funcionario funcionario:funcionarios){
+            tot += funcionario.calcularPagamento();
+        }
+        return tot;
     }
 
     public void listarFuncionario() {

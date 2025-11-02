@@ -26,14 +26,12 @@ public abstract class Funcionario {
         LocalDate hoje = LocalDate.now();
         
         Period duracao = Period.between(hoje,funcionario.dataContratacao);
-        int anos = duracao.getYears();
-
-        return anos;
-    };
+        return duracao.getYears();
+    }
 
     public String getCargo(Funcionario funcionario){
         return "Funcionário";
-    };
+    }
 
     public String toString(){
         return "Nome: "+ nome;
@@ -45,5 +43,10 @@ public abstract class Funcionario {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+
+    public String getNome() {
+        return nome;
     }
 }
