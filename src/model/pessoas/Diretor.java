@@ -7,7 +7,8 @@ import model.interfaces.Relatorio;
 import java.time.LocalDate;
 
 public class Diretor extends Funcionario implements Bonificavel, Relatorio {
-    protected Diretor(String nome, String cpf, double salarioBase, LocalDate dataContratacao, Departamento departamento) {
+
+    public Diretor(String nome, String cpf, double salarioBase, LocalDate dataContratacao, Departamento departamento) {
         super(nome, cpf, salarioBase, dataContratacao, departamento);
     }
 

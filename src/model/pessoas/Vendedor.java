@@ -7,10 +7,12 @@ import java.time.LocalDate;
 
 public class Vendedor extends Funcionario implements Bonificavel {
     private double totalVendas;
-    private double comissao;
+    private final double comissao;
 
-    protected Vendedor(String nome, String cpf, double salarioBase, LocalDate dataContratacao, Departamento departamento) {
+    public Vendedor(String nome, String cpf, double salarioBase, LocalDate dataContratacao, Departamento departamento, double comissao) {
         super(nome, cpf, salarioBase, dataContratacao, departamento);
+        this.totalVendas = 0;
+        this.comissao = comissao;
     }
 
     @Override
@@ -20,9 +22,11 @@ public class Vendedor extends Funcionario implements Bonificavel {
 
     @Override
     public double calcularPagamento() {
-        return 0;
+        return this.salarioBase + (totalVendas*comissao);
     }
 
     public void registrarVenda(double valor){
+        this.totalVendas += valor;
+        System.out.println("Venda de R$ "+ valor);
     }
 }

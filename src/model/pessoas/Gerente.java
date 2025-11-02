@@ -8,11 +8,13 @@ import java.time.LocalDate;
 
 public class Gerente extends Funcionario implements Bonificavel, Relatorio {
 
-    private double bonusAnual;
-    private int equipeGeenciada;
+    private final double bonusAnual;
+    private final int equipeGerenciada;
 
-    public Gerente(String nome, String cpf, double salarioBase, LocalDate dataContratacao, Departamento departamento) {
+    public Gerente(String nome, String cpf, double salarioBase, LocalDate dataContratacao, Departamento departamento, double bonusAnual) {
         super(nome, cpf, salarioBase, dataContratacao, departamento);
+        this.bonusAnual = bonusAnual;
+        this.equipeGerenciada = 0;
     }
 
     @Override
